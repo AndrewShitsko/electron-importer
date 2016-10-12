@@ -34,6 +34,6 @@ ipc.on('selected-file', function(event, path) {
     }
     table.appendChild(thead)
     table.appendChild(tbody)
+    document.getElementById('content').appendChild(table)
   })
-  document.getElementById('content').appendChild(table)
 })

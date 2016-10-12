@@ -15,10 +15,6 @@ function createWindow() {
 
   mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
 
-  mainWindow.on('closed', function() {
-    mainWindow = null
-  })
-
   client.create(mainWindow)
 }
 
