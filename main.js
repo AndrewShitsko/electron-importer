@@ -7,6 +7,8 @@ const client = require('electron-connect').client
 const ipc = electron.ipcMain
 const dialog = electron.dialog
 
+const java = require('java')
+
 function createWindow() {
   let mainWindow = new BrowserWindow({
     width: 800,
@@ -14,6 +16,11 @@ function createWindow() {
   })
 
   mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
+
+  java.classpath.push('./src');
+  var TestClass = java.import('net.realizeideas.andrew.TestClass');
+  var result = TestClass.addNumbersSync(1, 2);
+  console.log(result);
 
   client.create(mainWindow)
 }
